@@ -14,7 +14,7 @@ def index():
     try:
         payload = loads(request.data)
         for commit_num, data_dict in enumerate(payload['commits']):
-            data += f"Commit{i + 1}"
+            data += f"Commit{commit_num + 1}"
             data += "Login: " + payload['pusher']['name'] + '\n'
             data += "Message: " + data_dict['message'] +"\n"
             data += "Timestamp: " + data_dict['timestamp'] + '\n'
