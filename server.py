@@ -16,7 +16,7 @@ def index():
         data += payload['pusher']['name'] + '\n'
         data += payload['commits'][0]['message'] +"\n"
         data += payload['commits'][0]['timestamp'] + '\n'
-        data += payload['commits'][0]['modified']
+        data += str(payload['commits'][0]['modified'])
         [bot.send_message(int(chat_id), data) for chat_id in ids]
     except Exception as e:        
         [bot.send_message(int(chat_id),"Can't get data.") for chat_id in ids]
