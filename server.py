@@ -13,13 +13,13 @@ def index():
     try:
         payload = loads(request.data)
         for commit_num, data_dict in enumerate(payload['commits']):
-            data += f"Commit{commit_num + 1}"
+            data += f"Commit{commit_num + 1}\n"
             data += "Login: " + payload['pusher']['name'] + '\n'
             data += "Message: " + data_dict['message'] +"\n"
             data += "Timestamp: " + data_dict['timestamp'] + '\n'
             data += "Modified files: " + str(data_dict['modified']) + '\n'
-            data += "Modified files: " + str(data_dict['added'])+ '\n'
-            data += "Modified files: " + str(data_dict['removed'])+ '\n'
+            data += "Added files: " + str(data_dict['added'])+ '\n'
+            data += "Removed files: " + str(data_dict['removed'])+ '\n'
             data += "-" * 25 + '\n'
             [bot.send_message(int(chat_id), data) for chat_id in ids]
     except Exception as e:        
