@@ -9,4 +9,3 @@ function main(){
     console.log(FindMaxElem(test));
 }
 
-main();
