@@ -12,9 +12,13 @@ def index():
     [bot.send_message(int(chat_id),"File was comitted") for chat_id in ids]
     try:
         payload = loads(request.data)
-        print(payload)
+        print(payload['pusher']['name'])
+        print(payload['pusher']['message'])
+        print(payload['pusher']['timestamp'])
+        print(payload['pusher']['modified'])
+        
     except Exception as e:        
-        print(e)
+        [bot.send_message(int(chat_id),"Can't get data.") for chat_id in ids]
 
     return "Ok!"
 
