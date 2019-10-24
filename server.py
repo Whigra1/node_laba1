@@ -25,7 +25,7 @@ def index():
             [bot.send_message(int(chat_id), data) for chat_id in ids]
     except Exception as e:        
         [bot.send_message(int(chat_id),"Can't get data.") for chat_id in ids]
-
+        print(e)
     return "Ok!"
 
 if __name__ == "__main__":
