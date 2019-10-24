@@ -8,7 +8,8 @@ app = Flask(__name__)
 @app.route("/", methods=['POST'])
 def index():
     print("success")
-    [bot.send_message(chat_id,"File was comitted") for chat_id in csvhandler.read()]
+    ids = csvhandler.read()
+    [bot.send_message(int(chat_id),"File was comitted") for chat_id in ids]
     try:
         payload = loads(request.data)
         print(payload)
