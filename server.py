@@ -9,11 +9,12 @@ app = Flask(__name__)
 def index():
     print("success")
     ids = csvhandler.read()
+    data = ""
     [bot.send_message(int(chat_id),"File was comitted") for chat_id in ids]
     try:
         payload = loads(request.data)
-        print(payload['pusher']['name'])
-        print(payload['pusher']['message'])
+        data += payload['pusher']['name'] + '\n'
+        data += payload['pusher']['message'] +"\n"
         print(payload['pusher']['timestamp'])
         print(payload['pusher']['modified'])
         
