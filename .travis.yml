@@ -1,2 +1,21 @@
-language: python
+language: node_js
+node_js:
+  - 10.16.3
+cache: yarn
 os: windows
+
+install: 
+  - yarn install
+
+script:
+  - yarn tes
+  - yarn rub build
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  on:
+    branch: gh-pages
+    
+
