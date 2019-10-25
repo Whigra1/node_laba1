@@ -8,8 +8,8 @@ install:
   - yarn install
 
 script:
-  - yarn tes
-  - yarn rub build
+  - yarn test
+  - yarn run build
 
 deploy:
   provider: pages
@@ -17,5 +17,5 @@ deploy:
   github-token: $GITHUB_TOKEN
   on:
     branch: gh-pages
-    
+
 
